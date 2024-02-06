@@ -1,21 +1,24 @@
 ## Background
-Prior research has demonstrated certain clinical traits change over time. However, the molecular mechanisms underlying these temporal changes remain inadequately explored. DNA methylation, correlated with a myriad of exposures and diseases, exhibits obvious time trajectories in some CpG sites. Thus, the identification of longitudinal methylation QTLs could furnish new insights into the mechanisms driving these changes.
+Prior research has demonstrated certain clinical traits change over time. However, the molecular mechanisms underlying these temporal changes remain inadequately explored. DNA methylation exhibits obvious time trajectories in some CpG sites. Thus, the identification of longitudinal methylation QTLs could furnish new insights into the mechanisms driving these changes. We have used the ALSPAC cohort to estimate age x snp interactions on DNA methylation levels. We restricted our discovery analysis to known additive effects previously reported through GoDMC, and only analysed influences on methylation trajectories by age amongst children. 
 
 ## Aim
-To investigate the longitudinal association between target genetic factors and corresponding DNA methylation changes in the Generation R cohort.
+These scripts aim to re-estimate the discovered age x snp interactions on DNA methylation levels in independent cohorts. The discovered SNP-CpG pairs that show an age interaction are in the `/data` directory. These scripts will take genotype and DNA methylation data + covariates, and re-estimate the age x SNP interactions for the previously discovered interacting mQTLs.
 
-## Datasets to be used
-1. Identifiers and sample variables: The analysis will include child participants who possess DNA methylation data collected at a minimum of two distinct time points and genotype data.
+## Inclusion criteria
 
-    **ind_id**: A unique identifier assigned to each individual, e.g. 34384_A
-  
-    **time_point**: 0 for Birth; 5 for 5y; 9 for 9y
+- Child participants (e.g. below age 20)
+- DNA methylation collected at a minimum of two distinct time points
+- Genotype data imputed to a recent reference panel (e.g. 1000 genomes, HRC, Topmed etc)
 
-    **samp_id**: A unique identifier assigned to each blood sample collected from individuals at various time points, e.g. 34384_A1, 34384_A2, and 34384_A3 denote three distinct samples from the same individual, 34384_A1 corresponding to collection at Birth, 34384_A2 corresponding to collection at 5y, and 34384_A3 corresponding to collection at 9y, respectively.
+## Overview of datasets required
 
-    **age**: The ages of the children when their blood samples were collected were distinct from and provided more precise temporal information than the `time_point` variable.
+1. Individual and sample identifiers and variables
 
-    **Covariates**: sex, cell counts (12 cell counts from Salas et al. 2022 predicted with EpiDISH), methylation batch, and 10 genetic principal components of ancestry.
+    - **ind_id**: A unique identifier assigned to each individual, e.g. 34384_A
+    - **time_point**: 0 for Birth; 5 for 5y; 9 for 9y
+    - **samp_id**: A unique identifier assigned to each blood sample collected from individuals at various time points, e.g. 34384_A1, 34384_A2, and 34384_A3 denote three distinct samples from the same individual, 34384_A1 corresponding to collection at Birth, 34384_A2 corresponding to collection at 5y, and 34384_A3 corresponding to collection at 9y, respectively.
+    - **age**: The ages of the children when their blood samples were collected were distinct from and provided more precise temporal information than the `time_point` variable.
+    - **Covariates**: sex, cell counts (12 cell counts from Salas et al. 2022 predicted with EpiDISH), methylation batch, and 10 genetic principal components of ancestry.
 
 2. Methylation data: The analysis is capable of incorporating data from both 450k and EPIC arrays. If the IDs in the methylation data do not match the `samp_id`, it is necessary to rely on a linker file to modify them to the corresponding `samp_id`.
 
