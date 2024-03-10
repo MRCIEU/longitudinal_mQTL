@@ -42,7 +42,7 @@ head(samples) # Dummy data
 # 30045_A 30045_A3 9 3 BCD078 10 0 0.08 0.08 0.065 0.076 0 0.060 0.041 0.031 0.080 0.008 0.4 0.02 0.0009 0.004 -0.0077 0.0134 0.004 0.004 0.003 0.001 0.001 -0.004
 ```
 ### 2. meth matrix
-Row: 662 CpGs
+Row: 642 CpGs
 
 Column: samp_id
 
@@ -55,7 +55,7 @@ M[1:3,1:5]  # Dummy data
 # cg01808739 0.2421042  0.2196921  0.2230272 0.7255114  0.6212163
 ```
 ### 3. geno matrix
-Row: 632 target SNPs
+Row: 616 target SNPs
 
 Column: samp_id
 
@@ -68,7 +68,7 @@ df[1:3,1:5] # Dummy data
 # 1:10700448      2       2       2       2       2
 ```
 ### 4. analysis matrix
-The target set of 673 CpG-SNP pairs: `data/analysis_matrix.txt` file.
+The target set of 654 CpG-SNP pairs: `data/analysis_matrix.txt` file.
 
 ```
 snp        cpg        rsid
@@ -81,7 +81,7 @@ snp        cpg        rsid
 
 ## Output
 The files to be shared are `results/summariseMeth.tsv`, `results/lmm.meqtl` and `results/lmm.Rout`. 
-Besides, it would be advantageous to include the INFO scores for the 632 target SNPs. This could be achieved by supplying a separate file or by incorporating these scores into the existing `results/lmm.meqtl` file.
+Besides, it would be advantageous to include the INFO scores for the 616 target SNPs. This could be achieved by supplying a separate file or by incorporating these scores into the existing `results/lmm.meqtl` file.
 
 
 ## Code and scripts
