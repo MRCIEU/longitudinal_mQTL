@@ -68,7 +68,7 @@ df[1:3,1:5] # Dummy data
 # 1:10700448      2       2       2       2       2
 ```
 ### 4. analysis matrix
-The target set of 654 CpG-SNP pairs: `data/analysis_matrix.txt` file.
+The target set of 653 CpG-SNP pairs: `data/analysis_matrix.txt` file.
 
 ```
 snp        cpg        rsid
