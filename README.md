@@ -15,7 +15,7 @@ These scripts aim to re-estimate the discovered age x snp interactions on DNA me
 1. Individual and sample identifiers and variables
 
     - **ind_id**: A unique identifier assigned to each individual, e.g. 34384_A
-    - **time_point**: 0 for Birth; 5 for 5y; 9 for 9y
+    - **time_point**: e.g. 0 for Birth; 5 for 5y; 9 for 9y
     - **samp_id**: A unique identifier assigned to each blood sample collected from individuals at various time points, e.g. 34384_A1, 34384_A2, and 34384_A3 denote three distinct samples from the same individual, 34384_A1 corresponding to collection at Birth, 34384_A2 corresponding to collection at 5y, and 34384_A3 corresponding to collection at 9y, respectively.
     - **age**: The ages of the children when their blood samples were collected were distinct from and provided more precise temporal information than the `time_point` variable.
     - **Covariates**: sex, cell counts (12 cell counts from Salas et al. 2022 predicted with EpiDISH), methylation batch, and 10 genetic principal components of ancestry.
@@ -42,7 +42,7 @@ head(samples) # Dummy data
 # 30045_A 30045_A3 9 3 BCD078 10 0 0.08 0.08 0.065 0.076 0 0.060 0.041 0.031 0.080 0.008 0.4 0.02 0.0009 0.004 -0.0077 0.0134 0.004 0.004 0.003 0.001 0.001 -0.004
 ```
 ### 2. meth matrix
-Row: 642 CpGs
+Row: target CpGs
 
 Column: samp_id
 
@@ -55,7 +55,7 @@ M[1:3,1:5]  # Dummy data
 # cg01808739 0.2421042  0.2196921  0.2230272 0.7255114  0.6212163
 ```
 ### 3. geno matrix
-Row: 616 target SNPs
+Row: target SNPs
 
 Column: samp_id
 
@@ -68,7 +68,7 @@ df[1:3,1:5] # Dummy data
 # 1:10700448      2       2       2       2       2
 ```
 ### 4. analysis matrix
-The target set of 653 CpG-SNP pairs: `data/analysis_matrix.txt` file.
+The target set of CpG-SNP pairs: `data/analysis_matrix.txt` file.
 
 ```
 snp        cpg        rsid
@@ -76,12 +76,12 @@ snp        cpg        rsid
 1:40481100 cg00695362  rs11207310
 ```
 
-   Note: Generation R should have data for all target SNP and CpG sites. If any SNP or CpG site has no data, it suggests that the pipeline may be incompatible with the original data structure of Generation R. Please adjust the code or contact the GitHub repository owner.
+   Note: Your cohort should have data for all target SNP and CpG sites. If any SNP or CpG site has no data, it suggests that the pipeline may be incompatible with the original data structure. Please adjust the code or contact the GitHub repository owner.
 
 
 ## Output
 The files to be shared are `results/summariseMeth.tsv`, `results/lmm.meqtl` and `results/lmm.Rout`. 
-Besides, it would be advantageous to include the INFO scores for the 616 target SNPs. This could be achieved by supplying a separate file or by incorporating these scores into the existing `results/lmm.meqtl` file.
+Besides, it would be advantageous to include the INFO scores for the target SNPs. This could be achieved by supplying a separate file or by incorporating these scores into the existing `results/lmm.meqtl` file.
 
 
 ## Code and scripts
@@ -99,7 +99,7 @@ saveRDS(M, "data/meth_matrix.rds")
 ```
 
 ### 3. geno matrix
-Assume that the complete genotype data for Generation R is contained within the files named `gdata.bed`, `gdata.fam`, and `gdata.bim`.
+Assume that the complete genotype data for your cohort is contained within the files named `gdata.bed`, `gdata.fam`, and `gdata.bim`.
 
 If the individual identifiers (FID and IID) in the genotype data differ from the `ind_id` in the sample matrix, a linking file is necessary to associate them.
 ```r
