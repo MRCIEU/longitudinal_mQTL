@@ -8,6 +8,8 @@ These scripts aim to re-estimate the discovered age x snp interactions on DNA me
 
 - Child participants (e.g. below age 20)
 - DNA methylation collected at a minimum of two distinct time points
+
+    **! Note**: If any of your DNA methylation data come from cord blood samples instead of peripheral blood samples, please run the pipeline twice: once including the cord blood samples and once without them.
 - Genotype data imputed to a recent reference panel (e.g. 1000 genomes, HRC, Topmed etc)
 
 ## Overview of datasets required
@@ -17,6 +19,9 @@ These scripts aim to re-estimate the discovered age x snp interactions on DNA me
     - **ind_id**: A unique identifier assigned to each individual, e.g. 34384_A
     - **time_point**: e.g. 0 for Birth; 5 for 5y; 9 for 9y
     - **samp_id**: A unique identifier assigned to each blood sample collected from individuals at various time points, e.g. 34384_A1, 34384_A2, and 34384_A3 denote three distinct samples from the same individual, 34384_A1 corresponding to collection at Birth, 34384_A2 corresponding to collection at 5y, and 34384_A3 corresponding to collection at 9y, respectively.
+
+    Note: The `samp_id` may vary across different cohorts. The crucial thing is to ensure its consistency across methylation data, genotype data, and sample information table, as this variable serves as the key link among them.
+
     - **age**: The ages of the children when their blood samples were collected were distinct from and provided more precise temporal information than the `time_point` variable.
     - **Covariates**: sex, cell counts (12 cell counts from Salas et al. 2022 predicted with EpiDISH), methylation batch, and 10 genetic principal components of ancestry.
 
