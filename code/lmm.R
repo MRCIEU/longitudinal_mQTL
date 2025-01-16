@@ -115,7 +115,7 @@ analysis$p_lm <- NA
 analysis$singular <- NA
 analysis$n <- NA
 analysis$mm <- NA
-analysis <- analysis[(analysis$snp %in% rownames(geno)), ]
+analysis <- analysis[(analysis$snp %in% rownames(geno)) & (analysis$cpg %in% rownames(meth)), ]
 cat(paste0("Number of CpG-SNP pairs: ", nrow(analysis), "\n"))
 
 ##### Main body of analysis #####
