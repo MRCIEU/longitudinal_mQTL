@@ -1,12 +1,12 @@
 ## Background
-Prior research has demonstrated certain clinical traits change over time. However, the molecular mechanisms underlying these temporal changes remain inadequately explored. DNA methylation exhibits obvious time trajectories in some CpG sites. Thus, the identification of longitudinal methylation QTLs could furnish new insights into the mechanisms driving these changes. We have used the ALSPAC cohort to estimate age x snp interactions on DNA methylation levels. We restricted our discovery analysis to known additive effects previously reported through GoDMC, and only analysed influences on methylation trajectories by age amongst children. 
+Prior research has demonstrated certain clinical traits change over time. However, the molecular mechanisms underlying these temporal changes remain inadequately explored. DNA methylation exhibits obvious time trajectories in some CpG sites. Thus, the identification of longitudinal methylation QTLs could furnish new insights into the mechanisms driving these changes.  
 
 ## Aim
-These scripts aim to re-estimate the discovered age x snp interactions on DNA methylation levels in independent cohorts. The discovered SNP-CpG pairs that show an age interaction are in the `/data` directory. These scripts will take genotype and DNA methylation data + covariates, and re-estimate the age x SNP interactions for the previously discovered interacting mQTLs.
+These scripts aim to estimate age x snp interactions on DNA methylation levels. We restricted our discovery analysis in ALSPAC to known additive effects previously reported through GoDMC and only amongst children. We then re-estimated the discovered age x snp interactions on DNA methylation levels in independent cohorts. The discovered SNP-CpG pairs that show an age interaction are in the `/data` directory. These scripts will take genotype and DNA methylation data + covariates.
 
 ## Inclusion criteria
 
-- Child participants (e.g. below age 20)
+- Child participants (e.g. below age 24)
 - DNA methylation collected at a minimum of two distinct time points
 
     **! Note**: If any of your DNA methylation data come from cord blood samples instead of peripheral blood samples, please run the pipeline twice: once including the cord blood samples and once without them.
